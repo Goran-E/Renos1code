@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrothersRenos | Quality Renovations in Calgary</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: #1e293b;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f97316;
+      text-decoration: none;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #f97316;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.85)), 
+                  url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #cbd5e1;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* Section Headers */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #1e293b;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-top: 4px solid #f97316;
+      text-align: center;
+    }
+    .service-card h3 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Quality Craftsmanship Feature */
+    .craftsmanship {
+      background-color: #e2e8f0;
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .craftsmanship h2 {
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+    .craftsmanship p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #475569;
+      font-size: 1.1rem;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: #fff;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .contact-info {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+    }
+    .contact-info p {
+      margin: 0.75rem 0;
+    }
+    .contact-info a {
+      color: #f97316;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .nav-links { gap: 0.8rem; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="#" class="logo">BrothersRenos</a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#quality">Craftsmanship</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>BrothersRenos</h1>
+    <p>We provide all sorts of renovations in the Calgary Area.</p>
+  </section>
+
+  <div class="container">
+    
+    <!-- Services Section -->
+    <section id="services">
+      <h2 class="section-title">Our Renovation Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Basement Renovations</h3>
+          <p>Transforming unused basements into comfortable, functional living spaces.</p>
+        </div>
+        <div class="service-card">
+          <h3>Home Renovations</h3>
+          <p>Full-scale residential remodeling to bring your vision to life.</p>
+        </div>
+        <div class="service-card">
+          <h3>Custom Decks</h3>
+          <p>Beautiful, durable outdoor decks built for Calgary seasons.</p>
+        </div>
+        <div class="service-card">
+          <h3>New Fences</h3>
+          <p>Quality fencing to enhance your property's privacy and curb appeal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality Craftsmanship Banner -->
+    <section id="quality" class="craftsmanship">
+      <h2>Quality Craftsmanship</h2>
+      <p>
+        At BrothersRenos, we take immense pride in every project we touch. From framing to finishing touches, our focus is always on structural integrity, clean execution, and lasting quality.
+      </p>
+    </section>
+
+    <!-- Contact Page/Section -->
+    <section id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-card">
+        <p>Ready to get started on your next project? Reach out directly to book a consultation or ask questions:</p>
+        <div class="contact-info">
+          <p><strong>Email:</strong> <a href="mailto:BrothersRenos@gmail.com">BrothersRenos@gmail.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:4035554563">403-555-4563</a></p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 BrothersRenos. Serving Calgary & Surrounding Areas.</p>
+  </footer>
+
+</body>
+</html>
