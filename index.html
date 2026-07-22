@@ -1,247 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrothersRenos | Quality Renovations in Calgary</title>
-  <style>
-    /* Reset & Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f8f9fa;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brothers Renos | Calgary Renovation Contractor</title>
+<meta name="description" content="Brothers Renos provides basement renovations, home renovations, home building, custom decks, and new fences throughout the Calgary area.">
 
-    /* Header & Navigation */
-    header {
-      background-color: #1e293b;
-      color: #fff;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #f97316;
-      text-decoration: none;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #f97316;
-    }
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%231F3A54'/%3E%3Cpath d='M4 13 L12 6 L20 13 M6 13 V19 H18 V13' stroke='%23C1702E' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.85)), 
-                  url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-      padding: 5rem 1rem;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #cbd5e1;
-    }
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    /* Section Headers */
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #1e293b;
-    }
+<style>
+  :root{
+    --ink:#14181D;
+    --blueprint:#1F3A54;
+    --blueprint-2:#2C5478;
+    --blueprint-deep:#132433;
+    --timber:#C1702E;
+    --timber-dark:#9A5A22;
+    --paper:#F3F1EA;
+    --paper-white:#FBFAF7;
+    --line:#DCD7C8;
+    --line-invert:rgba(255,255,255,.16);
+    --muted:#6B6F72;
+    --muted-invert:#AAB8C4;
+    --font-display:'Big Shoulders Display', sans-serif;
+    --font-body:'Work Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
 
-    /* Services Grid */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .service-card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      border-top: 4px solid #f97316;
-      text-align: center;
-    }
-    .service-card h3 {
-      font-size: 1.25rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-    }
+  *{ scroll-behavior:smooth; }
+  html{ scroll-padding-top:76px; }
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display-font{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-weight:800;
+    letter-spacing:.01em;
+  }
+  a{ text-decoration:none; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--timber);
+    outline-offset:3px;
+  }
 
-    /* Quality Craftsmanship Feature */
-    .craftsmanship {
-      background-color: #e2e8f0;
-      border-radius: 8px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .craftsmanship h2 {
-      color: #1e293b;
-      margin-bottom: 1rem;
-    }
-    .craftsmanship p {
-      max-width: 800px;
-      margin: 0 auto;
-      color: #475569;
-      font-size: 1.1rem;
-    }
+  .eyebrow{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.72rem;
+    color:var(--timber);
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    margin-bottom:1rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:2px;
+    background:var(--timber);
+    display:inline-block;
+  }
+  .eyebrow.on-dark{ color:#E7A56C; }
 
-    /* Contact Section */
-    .contact-card {
-      background: #fff;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 2.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-    .contact-info {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
-    }
-    .contact-info p {
-      margin: 0.75rem 0;
-    }
-    .contact-info a {
-      color: #f97316;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
+  /* ---------- NAVBAR ---------- */
+  .navbar{
+    background:var(--blueprint);
+    padding-top:.9rem;
+    padding-bottom:.9rem;
+    transition:box-shadow .25s ease, padding .25s ease;
+  }
+  .navbar.scrolled{
+    box-shadow:0 4px 18px rgba(0,0,0,.25);
+    padding-top:.6rem;
+    padding-bottom:.6rem;
+  }
+  .navbar-brand{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-weight:800;
+    font-size:1.45rem;
+    color:var(--paper-white) !important;
+    letter-spacing:.01em;
+    display:flex;
+    align-items:center;
+    gap:.55rem;
+  }
+  .navbar-brand svg{ flex-shrink:0; }
+  .navbar-brand .brand-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.15;
+  }
+  .navbar-brand small{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    font-size:.6rem;
+    letter-spacing:.16em;
+    color:var(--muted-invert);
+    font-weight:400;
+    margin-top:2px;
+  }
+  .nav-link{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    font-size:.8rem;
+    letter-spacing:.08em;
+    color:rgba(255,255,255,.8) !important;
+    padding:.5rem 1rem !important;
+  }
+  .nav-link:hover{ color:#fff !important; }
+  .navbar-toggler{
+    border-color:rgba(255,255,255,.35);
+    padding:.35rem .55rem;
+  }
+  .navbar-toggler:focus{ box-shadow:0 0 0 .2rem rgba(193,112,46,.4); }
+  .navbar-toggler-icon{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  .btn-call-nav{
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    letter-spacing:.06em;
+    color:#fff;
+    border:1.5px solid rgba(255,255,255,.4);
+    border-radius:2px;
+    padding:.45rem .9rem;
+    white-space:nowrap;
+  }
+  .btn-call-nav:hover{ background:var(--timber); border-color:var(--timber); color:#fff; }
 
-    /* Footer */
-    footer {
-      background-color: #0f172a;
-      color: #94a3b8;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-    }
+  /* ---------- BUTTONS ---------- */
+  .btn-timber, .btn-outline-paper{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:.82rem;
+    padding:.85rem 1.75rem;
+    border-radius:2px;
+    border:1.5px solid transparent;
+  }
+  .btn-timber{ background:var(--timber); color:#fff; border-color:var(--timber); }
+  .btn-timber:hover{ background:var(--timber-dark); border-color:var(--timber-dark); color:#fff; }
+  .btn-outline-paper{ border-color:rgba(255,255,255,.5); color:#fff; }
+  .btn-outline-paper:hover{ background:rgba(255,255,255,.12); border-color:#fff; color:#fff; }
+  .btn-outline-ink{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:.82rem;
+    padding:.85rem 1.75rem;
+    border-radius:2px;
+    border:1.5px solid var(--ink);
+    color:var(--ink);
+  }
+  .btn-outline-ink:hover{ background:var(--ink); color:#fff; }
 
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .nav-links { gap: 0.8rem; font-size: 0.9rem; }
-    }
-  </style>
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(160deg, var(--blueprint) 0%, var(--blueprint-deep) 100%);
+    color:#fff;
+    padding:4.5rem 0 5rem;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5vw + 1rem, 4.4rem);
+    line-height:.96;
+    color:var(--paper-white);
+  }
+  .hero .lead-copy{
+    font-size:1.1rem;
+    color:var(--muted-invert);
+    max-width:34rem;
+  }
+  .blueprint-panel{
+    background:var(--blueprint-deep);
+    border:1px solid var(--line-invert);
+    border-radius:6px;
+    padding:.75rem;
+  }
+  .blueprint-panel svg{ width:100%; height:auto; display:block; }
+
+  /* ---------- DIMENSION DIVIDER ---------- */
+  .dim-divider{
+    display:flex;
+    align-items:center;
+    gap:1.1rem;
+    font-family:var(--font-mono);
+    font-size:.7rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0;
+    padding:2.75rem 0;
+  }
+  .dim-divider .dim-line{
+    flex:1 1 auto;
+    height:1px;
+    position:relative;
+    background:repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 11px);
+  }
+  .dim-divider .dim-line::before,
+  .dim-divider .dim-line::after{
+    content:"";
+    position:absolute;
+    top:-4px;
+    width:1px;
+    height:9px;
+    background:var(--line);
+  }
+  .dim-divider .dim-line::before{ left:0; }
+  .dim-divider .dim-line::after{ right:0; }
+  .dim-divider span{ white-space:nowrap; }
+
+  /* ---------- SERVICES ---------- */
+  .section-pad{ padding:5.5rem 0; }
+  .service-card{
+    background:var(--paper-white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:2.25rem 1.75rem;
+    height:100%;
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 30px rgba(20,24,29,.08);
+    border-color:transparent;
+  }
+  .corner-frame::before, .corner-frame::after{
+    content:"";
+    position:absolute;
+    width:16px; height:16px;
+    border-style:solid;
+    border-color:var(--timber);
+    opacity:0;
+    transition:opacity .25s ease;
+  }
+  .corner-frame::before{ top:-1px; left:-1px; border-width:2px 0 0 2px; }
+  .corner-frame::after{ bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
+  .corner-frame:hover::before, .corner-frame:hover::after{ opacity:1; }
+
+  .service-icon{
+    width:52px; height:52px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:1.4rem;
+    color:var(--timber);
+  }
+  .service-icon svg{ width:100%; height:100%; }
+  .service-card h3{
+    font-size:1.35rem;
+    letter-spacing:0;
+    margin-bottom:.6rem;
+  }
+  .service-card p{
+    color:var(--muted);
+    font-size:.96rem;
+    margin-bottom:0;
+  }
+  .service-num{
+    font-family:var(--font-mono);
+    font-size:.7rem;
+    letter-spacing:.1em;
+    color:var(--line);
+    position:absolute;
+    top:1.2rem;
+    right:1.4rem;
+  }
+
+  /* ---------- QUALITY / QUOTE ---------- */
+  .quality{
+    background:var(--ink);
+    color:var(--paper-white);
+    position:relative;
+    overflow:hidden;
+  }
+  .quality::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 32px),
+                      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 32px);
+    pointer-events:none;
+  }
+  .quality .content{ position:relative; z-index:1; }
+  .quality blockquote{
+    font-family:var(--font-display);
+    text-transform:none;
+    font-weight:700;
+    font-size:clamp(1.7rem, 3vw + .5rem, 2.6rem);
+    line-height:1.25;
+    max-width:44rem;
+    border-left:3px solid var(--timber);
+    padding-left:1.75rem;
+  }
+  .quality p.support{
+    color:var(--muted-invert);
+    max-width:38rem;
+    font-size:1.02rem;
+    margin-top:1.5rem;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-panel{
+    background:var(--paper-white);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:2.75rem;
+    position:relative;
+  }
+  .contact-row{
+    display:flex;
+    align-items:flex-start;
+    gap:1.1rem;
+    padding:1.15rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-row:last-child{ border-bottom:none; padding-bottom:0; }
+  .contact-row:first-child{ padding-top:0; }
+  .contact-row .icon{
+    width:42px; height:42px;
+    border-radius:3px;
+    background:var(--blueprint);
+    color:var(--paper-white);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    font-size:1.1rem;
+  }
+  .contact-row .label{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.68rem;
+    color:var(--muted);
+    display:block;
+    margin-bottom:.2rem;
+  }
+  .contact-row .value{
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .contact-row .value:hover{ color:var(--timber); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--blueprint-deep);
+    color:var(--muted-invert);
+    padding:3rem 0 2rem;
+    font-size:.9rem;
+  }
+  footer .foot-brand{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--paper-white);
+    font-size:1.25rem;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+  }
+  footer a{ color:var(--muted-invert); }
+  footer a:hover{ color:var(--timber); }
+  footer .foot-links{
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  hr.foot-rule{ border-color:var(--line-invert); opacity:1; margin:2rem 0 1.5rem; }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    *{ scroll-behavior:auto !important; }
+  }
+
+  @media (max-width:767.98px){
+    .section-pad{ padding:3.75rem 0; }
+    .quality blockquote{ padding-left:1.1rem; }
+    .contact-panel{ padding:1.75rem; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <nav>
-      <a href="#" class="logo">BrothersRenos</a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#quality">Craftsmanship</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero Banner -->
-  <section class="hero">
-    <h1>BrothersRenos</h1>
-    <p>We provide all sorts of renovations in the Calgary Area.</p>
-  </section>
-
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
   <div class="container">
-    
-    <!-- Services Section -->
-    <section id="services">
-      <h2 class="section-title">Our Renovation Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Basement Renovations</h3>
-          <p>Transforming unused basements into comfortable, functional living spaces.</p>
-        </div>
-        <div class="service-card">
-          <h3>Home Renovations</h3>
-          <p>Full-scale residential remodeling to bring your vision to life.</p>
-        </div>
-        <div class="service-card">
-          <h3>Custom Decks</h3>
-          <p>Beautiful, durable outdoor decks built for Calgary seasons.</p>
-        </div>
-        <div class="service-card">
-          <h3>New Fences</h3>
-          <p>Quality fencing to enhance your property's privacy and curb appeal.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quality Craftsmanship Banner -->
-    <section id="quality" class="craftsmanship">
-      <h2>Quality Craftsmanship</h2>
-      <p>
-        At BrothersRenos, we take immense pride in every project we touch. From framing to finishing touches, our focus is always on structural integrity, clean execution, and lasting quality.
-      </p>
-    </section>
-
-    <!-- Contact Page/Section -->
-    <section id="contact">
-      <h2 class="section-title">Contact Us</h2>
-      <div class="contact-card">
-        <p>Ready to get started on your next project? Reach out directly to book a consultation or ask questions:</p>
-        <div class="contact-info">
-          <p><strong>Email:</strong> <a href="mailto:@gmail.com"></a></p>
-          <p><strong>Phone:</strong> <a href="tel:5555555555">555-555-5555</a></p>
-        </div>
-      </div>
-    </section>
-
+    <a class="navbar-brand" href="#top">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path d="M4 16 L15 7 L26 16" stroke="#C1702E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 16 V24 H23 V16" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-text">Brothers Renos<small>Calgary Renovations</small></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-3 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn-call-nav d-inline-flex align-items-center gap-2" href="tel:5555555555">
+            <i class="bi bi-telephone-fill"></i> 555-555-5555
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 BrothersRenos. Serving Calgary & Surrounding Areas.</p>
-  </footer>
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <p class="eyebrow on-dark">Serving Calgary &amp; Area</p>
+        <h1 class="mb-4">Renovations,<br>Built Right.</h1>
+        <p class="lead-copy mb-4">We provide all sorts of renovations in the Calgary area — from below-grade basements to full home builds, custom decks, and new fences.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#contact" class="btn-timber">Book a Consultation</a>
+          <a href="tel:5555555555" class="btn-outline-paper d-inline-flex align-items-center gap-2">
+            <i class="bi bi-telephone"></i> 555-555-5555
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="blueprint-panel">
+          <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blueprint style line drawing of a house with an attached deck">
+            <defs>
+              <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="480" height="340" fill="url(#grid)"/>
 
+            <!-- scale note -->
+            <text x="28" y="30" font-family="var(--font-mono)" font-size="9" fill="var(--muted-invert)" letter-spacing="1">SCALE: NTS</text>
+
+            <!-- ground line -->
+            <line x1="30" y1="270" x2="452" y2="270" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="4 4"/>
+
+            <!-- roof -->
+            <path d="M120 150 L240 70 L360 150" stroke="#FBFAF7" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- walls -->
+            <path d="M130 150 V270 M350 150 V270" stroke="#FBFAF7" stroke-width="2" fill="none"/>
+            <line x1="130" y1="270" x2="350" y2="270" stroke="#FBFAF7" stroke-width="2"/>
+
+            <!-- door -->
+            <rect x="218" y="205" width="44" height="65" fill="none" stroke="#FBFAF7" stroke-width="2"/>
+            <circle cx="252" cy="238" r="2" fill="#FBFAF7"/>
+
+            <!-- window left -->
+            <rect x="152" y="185" width="42" height="42" fill="none" stroke="#FBFAF7" stroke-width="2"/>
+            <line x1="173" y1="185" x2="173" y2="227" stroke="#FBFAF7" stroke-width="1.3"/>
+            <line x1="152" y1="206" x2="194" y2="206" stroke="#FBFAF7" stroke-width="1.3"/>
+
+            <!-- window right -->
+            <rect x="286" y="185" width="42" height="42" fill="none" stroke="#FBFAF7" stroke-width="2"/>
+            <line x1="307" y1="185" x2="307" y2="227" stroke="#FBFAF7" stroke-width="1.3"/>
+            <line x1="286" y1="206" x2="328" y2="206" stroke="#FBFAF7" stroke-width="1.3"/>
+
+            <!-- deck -->
+            <line x1="350" y1="245" x2="430" y2="245" stroke="#FBFAF7" stroke-width="2"/>
+            <line x1="430" y1="245" x2="430" y2="270" stroke="#FBFAF7" stroke-width="2"/>
+            <line x1="358" y1="256" x2="430" y2="256" stroke="rgba(251,250,247,.5)" stroke-width="1"/>
+            <line x1="358" y1="263" x2="430" y2="263" stroke="rgba(251,250,247,.5)" stroke-width="1"/>
+            <line x1="350" y1="205" x2="430" y2="205" stroke="#FBFAF7" stroke-width="2"/>
+            <line x1="352" y1="205" x2="352" y2="245" stroke="#FBFAF7" stroke-width="1.6"/>
+            <line x1="428" y1="205" x2="428" y2="245" stroke="#FBFAF7" stroke-width="1.6"/>
+            <line x1="370" y1="205" x2="370" y2="245" stroke="rgba(251,250,247,.6)" stroke-width="1.2"/>
+            <line x1="390" y1="205" x2="390" y2="245" stroke="rgba(251,250,247,.6)" stroke-width="1.2"/>
+            <line x1="410" y1="205" x2="410" y2="245" stroke="rgba(251,250,247,.6)" stroke-width="1.2"/>
+
+            <!-- dimension: width -->
+            <line x1="130" y1="295" x2="350" y2="295" stroke="var(--timber)" stroke-width="1"/>
+            <line x1="130" y1="291" x2="130" y2="299" stroke="var(--timber)" stroke-width="1"/>
+            <line x1="350" y1="291" x2="350" y2="299" stroke="var(--timber)" stroke-width="1"/>
+            <text x="240" y="313" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--timber)" letter-spacing="1">28'-0&quot;</text>
+
+            <!-- dimension: height -->
+            <line x1="95" y1="150" x2="95" y2="270" stroke="var(--timber)" stroke-width="1"/>
+            <line x1="91" y1="150" x2="99" y2="150" stroke="var(--timber)" stroke-width="1"/>
+            <line x1="91" y1="270" x2="99" y2="270" stroke="var(--timber)" stroke-width="1"/>
+            <text x="80" y="215" text-anchor="middle" transform="rotate(-90 80 215)" font-family="var(--font-mono)" font-size="11" fill="var(--timber)" letter-spacing="1">9'-6&quot;</text>
+
+            <!-- title block -->
+            <g transform="translate(322,296)">
+              <rect x="0" y="0" width="138" height="34" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+              <line x1="0" y1="17" x2="138" y2="17" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+              <text x="69" y="12" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="#FBFAF7" letter-spacing="1">BROTHERS RENOS</text>
+              <text x="69" y="28" text-anchor="middle" font-family="var(--font-mono)" font-size="7.5" fill="var(--muted-invert)" letter-spacing="1">CALGARY, AB · SHEET A-101</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SERVICES ================= -->
+<section class="section-pad" id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 reveal">
+        <p class="eyebrow">What We Build</p>
+        <h2 class="mb-3">Our Renovation<br>Services Include</h2>
+        <p class="text-muted" style="max-width:34rem;">Five ways we help Calgary homeowners get more out of their space — each job handled start to finish by the same crew.</p>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-12 col-md-4 reveal">
+        <div class="service-card corner-frame">
+          <span class="service-num">01</span>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 21 L24 9 L40 21"/>
+              <path d="M11 21 V39 H37 V21"/>
+              <path d="M5 30 H43" stroke-dasharray="3 3"/>
+              <path d="M14 34 L18 38 M22 34 L26 38 M30 34 L34 38"/>
+            </svg>
+          </div>
+          <h3>Basement Renovations</h3>
+          <p>Turn unfinished square footage into livable space — rec rooms, home gyms, or a legal suite.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 reveal">
+        <div class="service-card corner-frame">
+          <span class="service-num">02</span>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <g transform="rotate(45 24 24)">
+                <rect x="18" y="7" width="12" height="7" rx="1"/>
+                <line x1="24" y1="14" x2="24" y2="41"/>
+              </g>
+              <g transform="rotate(-45 24 24)">
+                <line x1="24" y1="7" x2="24" y2="34"/>
+                <rect x="20" y="34" width="8" height="7" rx="1"/>
+              </g>
+            </svg>
+          </div>
+          <h3>Home Renovations</h3>
+          <p>Kitchens, bathrooms, and full interior remodels, done with your everyday life in mind.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 reveal">
+        <div class="service-card corner-frame">
+          <span class="service-num">03</span>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 22 L24 9 L40 22"/>
+              <path d="M24 9 V40"/>
+              <path d="M11 22 V40 M37 22 V40"/>
+              <path d="M17 40 V25 M31 40 V25"/>
+              <path d="M11 40 H37"/>
+            </svg>
+          </div>
+          <h3>Home Building</h3>
+          <p>New builds from the ground up, framed and finished by the same crew from start to close.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 offset-md-2 reveal">
+        <div class="service-card corner-frame">
+          <span class="service-num">04</span>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="8" y1="14" x2="36" y2="14"/>
+              <line x1="10" y1="14" x2="10" y2="28"/>
+              <line x1="34" y1="14" x2="34" y2="28"/>
+              <line x1="16" y1="14" x2="16" y2="28"/>
+              <line x1="22" y1="14" x2="22" y2="28"/>
+              <line x1="28" y1="14" x2="28" y2="28"/>
+              <line x1="6" y1="28" x2="38" y2="28"/>
+              <line x1="6" y1="33" x2="38" y2="33"/>
+              <line x1="6" y1="38" x2="38" y2="38"/>
+            </svg>
+          </div>
+          <h3>Custom Decks</h3>
+          <p>Outdoor living built for Calgary weather — from simple platforms to multi-level designs.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 reveal">
+        <div class="service-card corner-frame">
+          <span class="service-num">05</span>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="8" y1="12" x2="8" y2="40"/>
+              <line x1="17" y1="12" x2="17" y2="40"/>
+              <line x1="26" y1="12" x2="26" y2="40"/>
+              <line x1="35" y1="12" x2="35" y2="40"/>
+              <line x1="5" y1="19" x2="38" y2="19"/>
+              <line x1="5" y1="31" x2="38" y2="31"/>
+            </svg>
+          </div>
+          <h3>New Fences</h3>
+          <p>Privacy, property lines, and curb appeal — built solid enough to outlast the seasons.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIVIDER ================= -->
+<div class="container">
+  <div class="dim-divider">
+    <span class="dim-line"></span>
+    <span>Calgary, Alberta</span>
+    <span class="dim-line"></span>
+  </div>
+</div>
+
+<!-- ================= QUALITY ================= -->
+<section class="quality section-pad" id="quality">
+  <div class="container content">
+    <div class="row">
+      <div class="col-lg-9 reveal">
+        <p class="eyebrow on-dark">Our Approach</p>
+        <blockquote class="mb-0">
+          At BrothersRenos, we take immense pride in every project we touch.
+        </blockquote>
+        <p class="support">Every job — big or small — gets the same attention to detail, honest communication, and clean finish work, from the first measurement to the final walkthrough.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section-pad" id="contact">
+  <div class="container">
+    <div class="row gy-5 align-items-start">
+      <div class="col-lg-5 reveal">
+        <p class="eyebrow">Get In Touch</p>
+        <h2 class="mb-3">Contact Us</h2>
+        <p class="text-muted" style="max-width:26rem;">Ready to get started on your next project? Reach out directly to book a consultation or ask questions:</p>
+      </div>
+
+      <div class="col-lg-6 offset-lg-1 reveal">
+        <div class="contact-panel corner-frame">
+          <div class="contact-row">
+            <div class="icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <span class="label">Email</span>
+              <a class="value" href="mailto:test@gmail.com">test@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <span class="label">Phone</span>
+              <a class="value" href="tel:5555555555">555-555-5555</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <span class="label">Area Served</span>
+              <span class="value">Calgary &amp; Surrounding Area</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-md-4">
+        <div class="foot-brand">
+          <svg width="24" height="24" viewBox="0 0 30 30" fill="none">
+            <path d="M4 16 L15 7 L26 16" stroke="#C1702E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 16 V24 H23 V16" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Brothers Renos
+        </div>
+        <p class="mt-2 mb-0" style="max-width:20rem;">Renovations, home building, decks &amp; fences across Calgary.</p>
+      </div>
+      <div class="col-md-4 foot-links">
+        <div class="d-flex flex-column gap-2">
+          <a href="#services">Services</a>
+          <a href="#quality">Quality</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="col-md-4 foot-links">
+        <div class="d-flex flex-column gap-2">
+          <a href="mailto:test@gmail.com"><i class="bi bi-envelope me-1"></i> test@gmail.com</a>
+          <a href="tel:5555555555"><i class="bi bi-telephone me-1"></i> 555-555-5555</a>
+        </div>
+      </div>
+    </div>
+    <hr class="foot-rule">
+    <p class="mb-0" style="font-family:var(--font-mono); font-size:.75rem; letter-spacing:.04em;">&copy; <span id="year"></span> Brothers Renos. Serving Calgary &amp; area.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // navbar shadow on scroll
+  const nav = document.getElementById('mainNav');
+  const onScroll = () => {
+    if (window.scrollY > 12) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // collapse mobile nav after link click
+  document.querySelectorAll('#navMenu .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const collapse = bootstrap.Collapse.getInstance(document.getElementById('navMenu'));
+      if (collapse) collapse.hide();
+    });
+  });
+
+  // scroll reveal
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+</script>
 </body>
 </html>
