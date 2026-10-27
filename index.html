@@ -1,761 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brothers Renos | Calgary Renovation Contractor</title>
-<meta name="description" content="Brothers Renos provides basement renovations, home renovations, home building, custom decks, and new fences throughout the Calgary area.">
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%231F3A54'/%3E%3Cpath d='M4 13 L12 6 L20 13 M6 13 V19 H18 V13' stroke='%23C1702E' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-
-<!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --ink:#14181D;
-    --blueprint:#1F3A54;
-    --blueprint-2:#2C5478;
-    --blueprint-deep:#132433;
-    --timber:#C1702E;
-    --timber-dark:#9A5A22;
-    --paper:#F3F1EA;
-    --paper-white:#FBFAF7;
-    --line:#DCD7C8;
-    --line-invert:rgba(255,255,255,.16);
-    --muted:#6B6F72;
-    --muted-invert:#AAB8C4;
-    --font-display:'Big Shoulders Display', sans-serif;
-    --font-body:'Work Sans', sans-serif;
-    --font-mono:'IBM Plex Mono', monospace;
-  }
-
-  *{ scroll-behavior:smooth; }
-  html{ scroll-padding-top:76px; }
-  body{
-    font-family:var(--font-body);
-    color:var(--ink);
-    background:var(--paper);
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.display-font{
-    font-family:var(--font-display);
-    text-transform:uppercase;
-    font-weight:800;
-    letter-spacing:.01em;
-  }
-  a{ text-decoration:none; }
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--timber);
-    outline-offset:3px;
-  }
-
-  .eyebrow{
-    font-family:var(--font-mono);
-    text-transform:uppercase;
-    letter-spacing:.18em;
-    font-size:.72rem;
-    color:var(--timber);
-    display:inline-flex;
-    align-items:center;
-    gap:.6rem;
-    margin-bottom:1rem;
-  }
-  .eyebrow::before{
-    content:"";
-    width:22px;
-    height:2px;
-    background:var(--timber);
-    display:inline-block;
-  }
-  .eyebrow.on-dark{ color:#E7A56C; }
-
-  /* ---------- NAVBAR ---------- */
-  .navbar{
-    background:var(--blueprint);
-    padding-top:.9rem;
-    padding-bottom:.9rem;
-    transition:box-shadow .25s ease, padding .25s ease;
-  }
-  .navbar.scrolled{
-    box-shadow:0 4px 18px rgba(0,0,0,.25);
-    padding-top:.6rem;
-    padding-bottom:.6rem;
-  }
-  .navbar-brand{
-    font-family:var(--font-display);
-    text-transform:uppercase;
-    font-weight:800;
-    font-size:1.45rem;
-    color:var(--paper-white) !important;
-    letter-spacing:.01em;
-    display:flex;
-    align-items:center;
-    gap:.55rem;
-  }
-  .navbar-brand svg{ flex-shrink:0; }
-  .navbar-brand .brand-text{
-    display:flex;
-    flex-direction:column;
-    line-height:1.15;
-  }
-  .navbar-brand small{
-    font-family:var(--font-mono);
-    text-transform:uppercase;
-    font-size:.6rem;
-    letter-spacing:.16em;
-    color:var(--muted-invert);
-    font-weight:400;
-    margin-top:2px;
-  }
-  .nav-link{
-    font-family:var(--font-mono);
-    text-transform:uppercase;
-    font-size:.8rem;
-    letter-spacing:.08em;
-    color:rgba(255,255,255,.8) !important;
-    padding:.5rem 1rem !important;
-  }
-  .nav-link:hover{ color:#fff !important; }
-  .navbar-toggler{
-    border-color:rgba(255,255,255,.35);
-    padding:.35rem .55rem;
-  }
-  .navbar-toggler:focus{ box-shadow:0 0 0 .2rem rgba(193,112,46,.4); }
-  .navbar-toggler-icon{
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
-  .btn-call-nav{
-    font-family:var(--font-mono);
-    font-size:.78rem;
-    letter-spacing:.06em;
-    color:#fff;
-    border:1.5px solid rgba(255,255,255,.4);
-    border-radius:2px;
-    padding:.45rem .9rem;
-    white-space:nowrap;
-  }
-  .btn-call-nav:hover{ background:var(--timber); border-color:var(--timber); color:#fff; }
-
-  /* ---------- BUTTONS ---------- */
-  .btn-timber, .btn-outline-paper{
-    font-family:var(--font-mono);
-    text-transform:uppercase;
-    letter-spacing:.06em;
-    font-size:.82rem;
-    padding:.85rem 1.75rem;
-    border-radius:2px;
-    border:1.5px solid transparent;
-  }
-  .btn-timber{ background:var(--timber); color:#fff; border-color:var(--timber); }
-  .btn-timber:hover{ background:var(--timber-dark); border-color:var(--timber-dark); color:#fff; }
-  .btn-outline-paper{ border-color:rgba(255,255,255,.5); color:#fff; }
-  .btn-outline-paper:hover{ background:rgba(255,255,255,.12); border-color:#fff; color:#fff; }
-  .btn-outline-ink{
-    font-family:var(--font-mono);
-    text-transform:uppercase;
-    letter-spacing:.06em;
-    font-size:.82rem;
-    padding:.85rem 1.75rem;
-    border-radius:2px;
-    border:1.5px solid var(--ink);
-    color:var(--ink);
-  }
-  .btn-outline-ink:hover{ background:var(--ink); color:#fff; }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    background:linear-gradient(160deg, var(--blueprint) 0%, var(--blueprint-deep) 100%);
-    color:#fff;
-    padding:4.5rem 0 5rem;
-  }
-  .hero h1{
-    font-size:clamp(2.6rem, 5vw + 1rem, 4.4rem);
-    line-height:.96;
-    color:var(--paper-white);
-  }
-  .hero .lead-copy{
-    font-size:1.1rem;
-    color:var(--muted-invert);
-    max-width:34rem;
-  }
-  .blueprint-panel{
-    background:var(--blueprint-deep);
-    border:1px solid var(--line-invert);
-    border-radius:6px;
-    padding:.75rem;
-  }
-  .blueprint-panel svg{ width:100%; height:auto; display:block; }
-
-  /* ---------- DIMENSION DIVIDER ---------- */
-  .dim-divider{
-    display:flex;
-    align-items:center;
-    gap:1.1rem;
-    font-family:var(--font-mono);
-    font-size:.7rem;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin:0;
-    padding:2.75rem 0;
-  }
-  .dim-divider .dim-line{
-    flex:1 1 auto;
-    height:1px;
-    position:relative;
-    background:repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 11px);
-  }
-  .dim-divider .dim-line::before,
-  .dim-divider .dim-line::after{
-    content:"";
-    position:absolute;
-    top:-4px;
-    width:1px;
-    height:9px;
-    background:var(--line);
-  }
-  .dim-divider .dim-line::before{ left:0; }
-  .dim-divider .dim-line::after{ right:0; }
-  .dim-divider span{ white-space:nowrap; }
-
-  /* ---------- SERVICES ---------- */
-  .section-pad{ padding:5.5rem 0; }
-  .service-card{
-    background:var(--paper-white);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:2.25rem 1.75rem;
-    height:100%;
-    position:relative;
-    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
-  .service-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 14px 30px rgba(20,24,29,.08);
-    border-color:transparent;
-  }
-  .corner-frame::before, .corner-frame::after{
-    content:"";
-    position:absolute;
-    width:16px; height:16px;
-    border-style:solid;
-    border-color:var(--timber);
-    opacity:0;
-    transition:opacity .25s ease;
-  }
-  .corner-frame::before{ top:-1px; left:-1px; border-width:2px 0 0 2px; }
-  .corner-frame::after{ bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
-  .corner-frame:hover::before, .corner-frame:hover::after{ opacity:1; }
-
-  .service-icon{
-    width:52px; height:52px;
-    display:flex; align-items:center; justify-content:center;
-    margin-bottom:1.4rem;
-    color:var(--timber);
-  }
-  .service-icon svg{ width:100%; height:100%; }
-  .service-card h3{
-    font-size:1.35rem;
-    letter-spacing:0;
-    margin-bottom:.6rem;
-  }
-  .service-card p{
-    color:var(--muted);
-    font-size:.96rem;
-    margin-bottom:0;
-  }
-  .service-num{
-    font-family:var(--font-mono);
-    font-size:.7rem;
-    letter-spacing:.1em;
-    color:var(--line);
-    position:absolute;
-    top:1.2rem;
-    right:1.4rem;
-  }
-
-  /* ---------- QUALITY / QUOTE ---------- */
-  .quality{
-    background:var(--ink);
-    color:var(--paper-white);
-    position:relative;
-    overflow:hidden;
-  }
-  .quality::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 32px),
-                      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 32px);
-    pointer-events:none;
-  }
-  .quality .content{ position:relative; z-index:1; }
-  .quality blockquote{
-    font-family:var(--font-display);
-    text-transform:none;
-    font-weight:700;
-    font-size:clamp(1.7rem, 3vw + .5rem, 2.6rem);
-    line-height:1.25;
-    max-width:44rem;
-    border-left:3px solid var(--timber);
-    padding-left:1.75rem;
-  }
-  .quality p.support{
-    color:var(--muted-invert);
-    max-width:38rem;
-    font-size:1.02rem;
-    margin-top:1.5rem;
-  }
-
-  /* ---------- CONTACT ---------- */
-  .contact-panel{
-    background:var(--paper-white);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:2.75rem;
-    position:relative;
-  }
-  .contact-row{
-    display:flex;
-    align-items:flex-start;
-    gap:1.1rem;
-    padding:1.15rem 0;
-    border-bottom:1px solid var(--line);
-  }
-  .contact-row:last-child{ border-bottom:none; padding-bottom:0; }
-  .contact-row:first-child{ padding-top:0; }
-  .contact-row .icon{
-    width:42px; height:42px;
-    border-radius:3px;
-    background:var(--blueprint);
-    color:var(--paper-white);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-    font-size:1.1rem;
-  }
-  .contact-row .label{
-    font-family:var(--font-mono);
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    font-size:.68rem;
-    color:var(--muted);
-    display:block;
-    margin-bottom:.2rem;
-  }
-  .contact-row .value{
-    font-size:1.15rem;
-    font-weight:600;
-    color:var(--ink);
-  }
-  .contact-row .value:hover{ color:var(--timber); }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    background:var(--blueprint-deep);
-    color:var(--muted-invert);
-    padding:3rem 0 2rem;
-    font-size:.9rem;
-  }
-  footer .foot-brand{
-    font-family:var(--font-display);
-    text-transform:uppercase;
-    font-weight:800;
-    color:var(--paper-white);
-    font-size:1.25rem;
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-  }
-  footer a{ color:var(--muted-invert); }
-  footer a:hover{ color:var(--timber); }
-  footer .foot-links{
-    font-family:var(--font-mono);
-    font-size:.78rem;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-  }
-  hr.foot-rule{ border-color:var(--line-invert); opacity:1; margin:2rem 0 1.5rem; }
-
-  /* ---------- REVEAL ---------- */
-  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
-  .reveal.is-visible{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){
-    .reveal{ opacity:1; transform:none; transition:none; }
-    *{ scroll-behavior:auto !important; }
-  }
-
-  @media (max-width:767.98px){
-    .section-pad{ padding:3.75rem 0; }
-    .quality blockquote{ padding-left:1.1rem; }
-    .contact-panel{ padding:1.75rem; }
-  }
-</style>
-</head>
-<body>
-
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="#top">
-      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-        <path d="M4 16 L15 7 L26 16" stroke="#C1702E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M7 16 V24 H23 V16" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span class="brand-text">Brothers Renos<small>Calgary Renovations</small></span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto mb-3 mb-lg-0 align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-lg-3">
-          <a class="btn-call-nav d-inline-flex align-items-center gap-2" href="tel:5555555555">
-            <i class="bi bi-telephone-fill"></i> 555-555-5555
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- ================= HERO ================= -->
-<header class="hero" id="top">
-  <div class="container">
-    <div class="row align-items-center gy-5">
-      <div class="col-lg-6">
-        <p class="eyebrow on-dark">Serving Calgary &amp; Area</p>
-        <h1 class="mb-4">Renovations,<br>Built Right.</h1>
-        <p class="lead-copy mb-4">We provide all sorts of renovations in the Calgary area — from basement renovations to full home builds, custom decks, and new fences.</p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="#contact" class="btn-timber">Book a Consultation</a>
-          <a href="tel:5555555555" class="btn-outline-paper d-inline-flex align-items-center gap-2">
-            <i class="bi bi-telephone"></i> 555-555-5555
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="blueprint-panel">
-          <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blueprint style line drawing of a house with an attached deck">
-            <defs>
-              <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-                <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-              </pattern>
-            </defs>
-            <rect width="480" height="340" fill="url(#grid)"/>
-
-            <!-- scale note -->
-            <text x="28" y="30" font-family="var(--font-mono)" font-size="9" fill="var(--muted-invert)" letter-spacing="1">SCALE: NTS</text>
-
-            <!-- ground line -->
-            <line x1="30" y1="270" x2="452" y2="270" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="4 4"/>
-
-            <!-- roof -->
-            <path d="M120 150 L240 70 L360 150" stroke="#FBFAF7" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- walls -->
-            <path d="M130 150 V270 M350 150 V270" stroke="#FBFAF7" stroke-width="2" fill="none"/>
-            <line x1="130" y1="270" x2="350" y2="270" stroke="#FBFAF7" stroke-width="2"/>
-
-            <!-- door -->
-            <rect x="218" y="205" width="44" height="65" fill="none" stroke="#FBFAF7" stroke-width="2"/>
-            <circle cx="252" cy="238" r="2" fill="#FBFAF7"/>
-
-            <!-- window left -->
-            <rect x="152" y="185" width="42" height="42" fill="none" stroke="#FBFAF7" stroke-width="2"/>
-            <line x1="173" y1="185" x2="173" y2="227" stroke="#FBFAF7" stroke-width="1.3"/>
-            <line x1="152" y1="206" x2="194" y2="206" stroke="#FBFAF7" stroke-width="1.3"/>
-
-            <!-- window right -->
-            <rect x="286" y="185" width="42" height="42" fill="none" stroke="#FBFAF7" stroke-width="2"/>
-            <line x1="307" y1="185" x2="307" y2="227" stroke="#FBFAF7" stroke-width="1.3"/>
-            <line x1="286" y1="206" x2="328" y2="206" stroke="#FBFAF7" stroke-width="1.3"/>
-
-            <!-- deck -->
-            <line x1="350" y1="245" x2="430" y2="245" stroke="#FBFAF7" stroke-width="2"/>
-            <line x1="430" y1="245" x2="430" y2="270" stroke="#FBFAF7" stroke-width="2"/>
-            <line x1="358" y1="256" x2="430" y2="256" stroke="rgba(251,250,247,.5)" stroke-width="1"/>
-            <line x1="358" y1="263" x2="430" y2="263" stroke="rgba(251,250,247,.5)" stroke-width="1"/>
-            <line x1="350" y1="205" x2="430" y2="205" stroke="#FBFAF7" stroke-width="2"/>
-            <line x1="352" y1="205" x2="352" y2="245" stroke="#FBFAF7" stroke-width="1.6"/>
-            <line x1="428" y1="205" x2="428" y2="245" stroke="#FBFAF7" stroke-width="1.6"/>
-            <line x1="370" y1="205" x2="370" y2="245" stroke="rgba(251,250,247,.6)" stroke-width="1.2"/>
-            <line x1="390" y1="205" x2="390" y2="245" stroke="rgba(251,250,247,.6)" stroke-width="1.2"/>
-            <line x1="410" y1="205" x2="410" y2="245" stroke="rgba(251,250,247,.6)" stroke-width="1.2"/>
-
-            <!-- dimension: width -->
-            <line x1="130" y1="295" x2="350" y2="295" stroke="var(--timber)" stroke-width="1"/>
-            <line x1="130" y1="291" x2="130" y2="299" stroke="var(--timber)" stroke-width="1"/>
-            <line x1="350" y1="291" x2="350" y2="299" stroke="var(--timber)" stroke-width="1"/>
-            <text x="240" y="313" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--timber)" letter-spacing="1">28'-0&quot;</text>
-
-            <!-- dimension: height -->
-            <line x1="95" y1="150" x2="95" y2="270" stroke="var(--timber)" stroke-width="1"/>
-            <line x1="91" y1="150" x2="99" y2="150" stroke="var(--timber)" stroke-width="1"/>
-            <line x1="91" y1="270" x2="99" y2="270" stroke="var(--timber)" stroke-width="1"/>
-            <text x="80" y="215" text-anchor="middle" transform="rotate(-90 80 215)" font-family="var(--font-mono)" font-size="11" fill="var(--timber)" letter-spacing="1">9'-6&quot;</text>
-
-            <!-- title block -->
-            <g transform="translate(322,296)">
-              <rect x="0" y="0" width="138" height="34" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-              <line x1="0" y1="17" x2="138" y2="17" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-              <text x="69" y="12" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="#FBFAF7" letter-spacing="1">BROTHERS RENOS</text>
-              <text x="69" y="28" text-anchor="middle" font-family="var(--font-mono)" font-size="7.5" fill="var(--muted-invert)" letter-spacing="1">CALGARY, AB · SHEET A-101</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- ================= SERVICES ================= -->
-<section class="section-pad" id="services">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-7 reveal">
-        <p class="eyebrow">What We Build</p>
-        <h2 class="mb-3">Our Renovation<br>Services Include</h2>
-        <p class="text-muted" style="max-width:34rem;">Five ways we help Calgary homeowners get more out of their space.</p>
-      </div>
-    </div>
-
-    <div class="row g-4 mt-2">
-      <div class="col-12 col-md-4 reveal">
-        <div class="service-card corner-frame">
-          <span class="service-num">01</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 21 L24 9 L40 21"/>
-              <path d="M11 21 V39 H37 V21"/>
-              <path d="M5 30 H43" stroke-dasharray="3 3"/>
-              <path d="M14 34 L18 38 M22 34 L26 38 M30 34 L34 38"/>
-            </svg>
-          </div>
-          <h3>Basement Renovations</h3>
-          <p>Turn unfinished square footage into livable space </p>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 reveal">
-        <div class="service-card corner-frame">
-          <span class="service-num">02</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <g transform="rotate(45 24 24)">
-                <rect x="18" y="7" width="12" height="7" rx="1"/>
-                <line x1="24" y1="14" x2="24" y2="41"/>
-              </g>
-              <g transform="rotate(-45 24 24)">
-                <line x1="24" y1="7" x2="24" y2="34"/>
-                <rect x="20" y="34" width="8" height="7" rx="1"/>
-              </g>
-            </svg>
-          </div>
-          <h3>Home Renovations</h3>
-          <p>Kitchens, bathrooms, and full interior remodels, done with your everyday life in mind.</p>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 reveal">
-        <div class="service-card corner-frame">
-          <span class="service-num">03</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 22 L24 9 L40 22"/>
-              <path d="M24 9 V40"/>
-              <path d="M11 22 V40 M37 22 V40"/>
-              <path d="M17 40 V25 M31 40 V25"/>
-              <path d="M11 40 H37"/>
-            </svg>
-          </div>
-          <h3>Home Building</h3>
-          <p>New builds from the ground up.</p>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 offset-md-2 reveal">
-        <div class="service-card corner-frame">
-          <span class="service-num">04</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="8" y1="14" x2="36" y2="14"/>
-              <line x1="10" y1="14" x2="10" y2="28"/>
-              <line x1="34" y1="14" x2="34" y2="28"/>
-              <line x1="16" y1="14" x2="16" y2="28"/>
-              <line x1="22" y1="14" x2="22" y2="28"/>
-              <line x1="28" y1="14" x2="28" y2="28"/>
-              <line x1="6" y1="28" x2="38" y2="28"/>
-              <line x1="6" y1="33" x2="38" y2="33"/>
-              <line x1="6" y1="38" x2="38" y2="38"/>
-            </svg>
-          </div>
-          <h3>Custom Decks</h3>
-          <p>Outdoor living built for Calgary weather — from simple platforms to multi-level designs.</p>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 reveal">
-        <div class="service-card corner-frame">
-          <span class="service-num">05</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="8" y1="12" x2="8" y2="40"/>
-              <line x1="17" y1="12" x2="17" y2="40"/>
-              <line x1="26" y1="12" x2="26" y2="40"/>
-              <line x1="35" y1="12" x2="35" y2="40"/>
-              <line x1="5" y1="19" x2="38" y2="19"/>
-              <line x1="5" y1="31" x2="38" y2="31"/>
-            </svg>
-          </div>
-          <h3>New Fences</h3>
-          <p>Built solid enough to outlast the seasons.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= DIVIDER ================= -->
-<div class="container">
-  <div class="dim-divider">
-    <span class="dim-line"></span>
-    <span>Calgary, Alberta</span>
-    <span class="dim-line"></span>
-  </div>
-</div>
-
-<!-- ================= QUALITY ================= -->
-<section class="quality section-pad" id="quality">
-  <div class="container content">
-    <div class="row">
-      <div class="col-lg-9 reveal">
-        <p class="eyebrow on-dark">Our Approach</p>
-        <blockquote class="mb-0">
-          At Brothers Renos, we take immense pride in every project we touch.
-        </blockquote>
-        <p class="support">Every job — big or small — gets the same attention to detail, honest communication, and clean finish work, from the first measurement to the final walkthrough.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="section-pad" id="contact">
-  <div class="container">
-    <div class="row gy-5 align-items-start">
-      <div class="col-lg-5 reveal">
-        <p class="eyebrow">Get In Touch</p>
-        <h2 class="mb-3">Contact Us</h2>
-        <p class="text-muted" style="max-width:26rem;">Ready to get started on your next project? Reach out directly to book a free consultation or ask questions:</p>
-      </div>
-
-      <div class="col-lg-6 offset-lg-1 reveal">
-        <div class="contact-panel corner-frame">
-          <div class="contact-row">
-            <div class="icon"><i class="bi bi-envelope-fill"></i></div>
-            <div>
-              <span class="label">Email</span>
-              <a class="value" href="mailto:test@gmail.com">test@gmail.com</a>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="icon"><i class="bi bi-telephone-fill"></i></div>
-            <div>
-              <span class="label">Phone</span>
-              <a class="value" href="tel:5555555555">555-555-5555</a>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
-            <div>
-              <span class="label">Area Served</span>
-              <span class="value">Calgary &amp; Surrounding Area</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <div class="container">
-    <div class="row gy-4 align-items-center">
-      <div class="col-md-4">
-        <div class="foot-brand">
-          <svg width="24" height="24" viewBox="0 0 30 30" fill="none">
-            <path d="M4 16 L15 7 L26 16" stroke="#C1702E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M7 16 V24 H23 V16" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Brothers Renos
-        </div>
-        <p class="mt-2 mb-0" style="max-width:20rem;">Renovations, home building, decks &amp; fences across Calgary.</p>
-      </div>
-      <div class="col-md-4 foot-links">
-        <div class="d-flex flex-column gap-2">
-          <a href="#services">Services</a>
-          <a href="#quality">Quality</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      <div class="col-md-4 foot-links">
-        <div class="d-flex flex-column gap-2">
-          <a href="mailto:test@gmail.com"><i class="bi bi-envelope me-1"></i> test@gmail.com</a>
-          <a href="tel:5555555555"><i class="bi bi-telephone me-1"></i> 555-555-5555</a>
-        </div>
-      </div>
-    </div>
-    <hr class="foot-rule">
-    <p class="mb-0" style="font-family:var(--font-mono); font-size:.75rem; letter-spacing:.04em;">&copy; <span id="year"></span> Brothers Renos. Serving Calgary &amp; area.</p>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // navbar shadow on scroll
-  const nav = document.getElementById('mainNav');
-  const onScroll = () => {
-    if (window.scrollY > 12) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  document.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // collapse mobile nav after link click
-  document.querySelectorAll('#navMenu .nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      const collapse = bootstrap.Collapse.getInstance(document.getElementById('navMenu'));
-      if (collapse) collapse.hide();
-    });
-  });
-
-  // scroll reveal
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReduced && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Cashier Trainer</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
         }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-  }
-</script>
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .chip {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1.2rem;
+            flex-shrink: 0; /* Prevent chips from shrinking */
+        }
+        .chip-count {
+            font-size: 0.8rem;
+            margin-top: -5px;
+            color: #333;
+        }
+        /* Chip colors */
+        .chip-1 { background-color: #ffffff; color: #333; border-color: #cccccc; } /* White */
+        .chip-5 { background-color: #ff0000; } /* Red */
+        .chip-25 { background-color: #008000; } /* Green */
+        .chip-100 { background-color: #0000ff; } /* Blue */
+        .chip-500 { background-color: #800080; } /* Purple */
+        .chip-1000 { background-color: #000000; } /* Black */
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-full">
+        <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">💰 Casino Cashier Trainer 💰</h1>
+
+        <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <h2 class="text-xl font-semibold text-blue-800 mb-3">Chips on the Table:</h2>
+            <div id="chipsDisplay" class="chip-container">
+                <!-- Chips will be dynamically added here -->
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label for="totalValueInput" class="block text-lg font-medium text-gray-700 mb-2">
+                Total Chip Value ($):
+            </label>
+            <input type="number" id="totalValueInput" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-lg" placeholder="e.g., 12345" min="0">
+        </div>
+
+        <div class="mb-6 p-4 bg-green-50 rounded-lg border border-green-200">
+            <h2 class="text-xl font-semibold text-green-800 mb-3">Money to Give Out (Bills):</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div>
+                    <label for="bill100" class="block text-sm font-medium text-gray-700">$100 Bills:</label>
+                    <input type="number" id="bill100" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-base" value="0" min="0">
+                </div>
+                <div>
+                    <label for="bill50" class="block text-sm font-medium text-gray-700">$50 Bills:</label>
+                    <input type="number" id="bill50" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-base" value="0" min="0">
+                </div>
+                <div>
+                    <label for="bill20" class="block text-sm font-medium text-gray-700">$20 Bills:</label>
+                    <input type="number" id="bill20" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-base" value="0" min="0">
+                </div>
+                <div>
+                    <label for="bill10" class="block text-sm font-medium text-gray-700">$10 Bills:</label>
+                    <input type="number" id="bill10" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-base" value="0" min="0">
+                </div>
+                <div>
+                    <label for="bill5" class="block text-sm font-medium text-gray-700">$5 Bills:</label>
+                    <input type="number" id="bill5" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-base" value="0" min="0">
+                </div>
+                <div>
+                    <label for="bill1" class="block text-sm font-medium text-gray-700">$1 Bills:</label>
+                    <input type="number" id="bill1" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm text-base" value="0" min="0">
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+            <button id="checkButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                Check Answer
+            </button>
+            <button id="resetButton" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                Reset
+            </button>
+        </div>
+
+        <!-- New section for statistics -->
+        <div class="mb-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
+            <h2 class="text-xl font-semibold text-purple-800 mb-3">Your Progress:</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <div class="p-2 bg-purple-100 rounded-md">
+                    <p class="text-sm font-medium text-purple-700">Games Played:</p>
+                    <p id="gamesPlayed" class="text-2xl font-bold text-purple-900">0</p>
+                </div>
+                <div class="p-2 bg-green-100 rounded-md">
+                    <p class="text-sm font-medium text-green-700">Correct Answers:</p>
+                    <p id="correctAnswers" class="text-2xl font-bold text-green-900">0</p>
+                </div>
+                <div class="p-2 bg-red-100 rounded-md">
+                    <p class="text-sm font-medium text-red-700">Incorrect Answers:</p>
+                    <p id="incorrectAnswers" class="text-2xl font-bold text-red-900">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="messageBox" class="p-4 rounded-md text-center text-lg font-semibold hidden">
+            <!-- Messages will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Define casino chip denominations and their properties
+        const chipDenominations = [
+            { value: 1000, className: 'chip-1000', label: '$1000' },
+            { value: 500, className: 'chip-500', label: '$500' },
+            { value: 100, className: 'chip-100', label: '$100' },
+            { value: 25, className: 'chip-25', label: '$25' },
+            { value: 5, className: 'chip-5', label: '$5' },
+            { value: 1, className: 'chip-1', label: '$1' }
+        ];
+
+        // Define money bill denominations
+        const billDenominations = [100, 50, 20, 10, 5, 1];
+
+        // Get DOM elements
+        const chipsDisplay = document.getElementById('chipsDisplay');
+        const totalValueInput = document.getElementById('totalValueInput');
+        const checkButton = document.getElementById('checkButton');
+        const resetButton = document.getElementById('resetButton');
+        const messageBox = document.getElementById('messageBox');
+
+        // Get DOM elements for statistics
+        const gamesPlayedDisplay = document.getElementById('gamesPlayed');
+        const correctAnswersDisplay = document.getElementById('correctAnswers');
+        const incorrectAnswersDisplay = document.getElementById('incorrectAnswers');
+
+        // Store the correct total value for the current round
+        let correctTotalValue = 0;
+
+        // Statistics variables
+        let gamesPlayed = 0;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+
+        /**
+         * Generates a random integer between min and max (inclusive).
+         * @param {number} min - The minimum value.
+         * @param {number} max - The maximum value.
+         * @returns {number} A random integer.
+         */
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        /**
+         * Clears all input fields and message box.
+         */
+        function clearInputs() {
+            totalValueInput.value = '';
+            billDenominations.forEach(bill => {
+                document.getElementById(`bill${bill}`).value = 0;
+            });
+            messageBox.textContent = '';
+            messageBox.classList.add('hidden');
+            messageBox.classList.remove('bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+        }
+
+        /**
+         * Displays a message in the message box.
+         * @param {string} message - The message to display.
+         * @param {boolean} isCorrect - True if the message is for a correct answer, false otherwise.
+         */
+        function displayMessage(message, isCorrect) {
+            messageBox.textContent = message;
+            messageBox.classList.remove('hidden');
+            if (isCorrect) {
+                messageBox.classList.remove('bg-red-100', 'text-red-800');
+                messageBox.classList.add('bg-green-100', 'text-green-800');
+            } else {
+                messageBox.classList.remove('bg-green-100', 'text-green-800');
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+            }
+        }
+
+        /**
+         * Updates the displayed statistics on the page.
+         */
+        function updateStatisticsDisplay() {
+            gamesPlayedDisplay.textContent = gamesPlayed;
+            correctAnswersDisplay.textContent = correctAnswers;
+            incorrectAnswersDisplay.textContent = incorrectAnswers;
+        }
+
+        /**
+         * Generates a new set of random chips and updates the display.
+         */
+        function generateNewRound() {
+            chipsDisplay.innerHTML = ''; // Clear previous chips
+            correctTotalValue = 0;
+            const chipCounts = {};
+
+            chipDenominations.forEach(chip => {
+                // Generate a random count for each chip type (e.g., 0-5 for smaller, 0-2 for larger)
+                const count = getRandomInt(0, chip.value >= 100 ? 2 : 5);
+                chipCounts[chip.value] = count;
+                correctTotalValue += chip.value * count;
+
+                if (count > 0) {
+                    const chipDiv = document.createElement('div');
+                    chipDiv.className = `chip ${chip.className}`;
+                    chipDiv.innerHTML = `<span>${chip.label}</span>`;
+
+                    const countSpan = document.createElement('span');
+                    countSpan.className = 'chip-count';
+                    countSpan.textContent = `x${count}`;
+
+                    const chipWrapper = document.createElement('div');
+                    chipWrapper.className = 'flex flex-col items-center';
+                    chipWrapper.appendChild(chipDiv);
+                    chipWrapper.appendChild(countSpan);
+                    chipsDisplay.appendChild(chipWrapper);
+                }
+            });
+        }
+
+        /**
+         * Calculates the total value from user-entered bills.
+         * @returns {number} The total value of bills entered by the user.
+         */
+        function calculateUserBillTotal() {
+            let userBillTotal = 0;
+            billDenominations.forEach(bill => {
+                const inputElement = document.getElementById(`bill${bill}`);
+                const count = parseInt(inputElement.value) || 0; // Default to 0 if empty or invalid
+                userBillTotal += bill * count;
+            });
+            return userBillTotal;
+        }
+
+        /**
+         * Calculates the optimal bill breakdown for a given amount.
+         * @param {number} amount - The total amount to break down into bills.
+         * @returns {Object} An object where keys are bill denominations and values are their counts.
+         */
+        function getOptimalBillBreakdown(amount) {
+            let remainingAmount = amount;
+            const breakdown = {};
+            billDenominations.forEach(bill => {
+                breakdown[bill] = 0; // Initialize count for each bill
+            });
+
+            // Iterate through denominations from largest to smallest
+            for (const bill of billDenominations) {
+                if (remainingAmount >= bill) {
+                    const count = Math.floor(remainingAmount / bill);
+                    breakdown[bill] = count;
+                    remainingAmount -= count * bill;
+                }
+            }
+            return breakdown;
+        }
+
+        /**
+         * Event handler for the Check Answer button.
+         */
+        checkButton.addEventListener('click', () => {
+            const userTotalValue = parseFloat(totalValueInput.value);
+            const userBillTotal = calculateUserBillTotal();
+
+            let isCorrect = true;
+            let message = '';
+
+            // Increment games played regardless of outcome
+            gamesPlayed++;
+
+            // Check total chip value
+            if (isNaN(userTotalValue) || userTotalValue !== correctTotalValue) {
+                isCorrect = false;
+                message += `Incorrect total chip value. Expected: $${correctTotalValue.toLocaleString()}. `;
+            }
+
+            // Check money bill breakdown
+            if (userBillTotal !== correctTotalValue) {
+                isCorrect = false;
+                message += `Incorrect total bill value. Your bills add up to $${userBillTotal.toLocaleString()}. Expected: $${correctTotalValue.toLocaleString()}. `;
+            } else {
+                // If total bill value is correct, check if the breakdown matches the optimal one
+                const optimalBreakdown = getOptimalBillBreakdown(correctTotalValue);
+                let billBreakdownCorrect = true;
+                for (const bill of billDenominations) {
+                    const userCount = parseInt(document.getElementById(`bill${bill}`).value) || 0;
+                    if (userCount !== optimalBreakdown[bill]) {
+                        billBreakdownCorrect = false;
+                        break;
+                    }
+                }
+
+                if (!billBreakdownCorrect) {
+                    isCorrect = false;
+                    message += 'Your bill breakdown is not optimal. ';
+                    message += 'Optimal breakdown: ';
+                    billDenominations.forEach(bill => {
+                        if (optimalBreakdown[bill] > 0) {
+                            message += `$${bill}x${optimalBreakdown[bill]} `;
+                        }
+                    });
+                }
+            }
+
+
+            if (isCorrect) {
+                displayMessage('🎉 Correct! Great job!', true);
+                correctAnswers++;
+            } else {
+                if (message === '') { // Fallback if no specific error message was generated
+                    message = 'Something is incorrect. Please review your entries.';
+                }
+                displayMessage(`❌ Incorrect. ${message}`, false);
+                incorrectAnswers++;
+            }
+
+            // Update statistics display after each check
+            updateStatisticsDisplay();
+        });
+
+        /**
+         * Event handler for the Reset button.
+         */
+        resetButton.addEventListener('click', () => {
+            clearInputs();
+            generateNewRound();
+            // Note: Reset button does not reset the statistics, only the current game.
+            // If you want to reset statistics, you'd add:
+            // gamesPlayed = 0; correctAnswers = 0; incorrectAnswers = 0; updateStatisticsDisplay();
+        });
+
+        // Initialize the app when the page loads
+        window.onload = () => {
+            generateNewRound();
+            updateStatisticsDisplay(); // Show initial zeros for statistics
+        };
+    </script>
 </body>
 </html>
